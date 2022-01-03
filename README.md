@@ -1,4 +1,4 @@
-![Aerolab's Frontend Developer coding challenge](assets)
+![Aerolab's Frontend Developer coding challenge](assets/aerolab-frontend-developer-coding-challenge.png)
 # Aerolab Frontend Developer coding challenge
 
 The challenge is to build a catalog view for a loyalty program app. We’ll provide you with the base UI and API, you can use it as provided or you can make any improvements you deem fit. It’s up to you, your imagination and your skills to come up with new solutions and/or interactions between the components.
