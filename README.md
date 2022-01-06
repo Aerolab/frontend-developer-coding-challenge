@@ -1,4 +1,4 @@
-![Aerolab's Frontend Developer coding challenge](assets/aerolab-frontend-developer-coding-challenge.png)
+![Aerolab's Frontend Developer coding challenge](assets/github-cover-aerolab-frontend-developer-coding-challenge.png)
 # Aerolab Frontend Developer coding challenge
 
 The challenge is to build a catalog view for a loyalty program app. We’ll provide you with the base UI and API, you can use it as provided or you can make any improvements you deem fit. It’s up to you, your imagination and your skills to come up with new solutions and/or interactions between the components.
@@ -83,11 +83,11 @@ We recommend that you use the following technologies, which are aligned with the
 
 We've crafted a beautiful design for this coding challenge. We provide your a Figma access to all of resources like, views, design systems, responsive adaptations, typography, styles, and more.
 
-- [See the beautiful design](https://www.figma.com/file/3O7BxHFnSSawJeny3lXWkE)
+- [Figma design here](https://www.figma.com/file/3O7BxHFnSSawJeny3lXWkE)
 
 ## API Documentation
-- [Claim your API token](https://aerolab.co/coding-challenge) and have access to endpoints
 - Read our [API Documentation](https://aerolabchallenge.docs.apiary.io/)
+- [Claim your API token](https://aerolab.co/coding-challenge) and have access to endpoints (type `join` and write your **email**. Then you'll receive some details and the API token)
 
 ## Delivery
 
@@ -97,9 +97,41 @@ In case you need a hand in getting your site to go live, we recommend you read t
 
 🚀 Once your code is ready send the public link and repository link via email to whoever sent it to you from Aerolab, or you can apply at https://aerolab.co/jobs if you got here some other way.
 
+---
+
+## Aerolab
+
+Aerolab is a Digital Product Studio based in Buenos Aires, Argentina.
+
+We design and develop top-tier websites and apps for startups and leading brands.
+
+Our goal is to find talented, creative developers.
+
+For us, this challenge is a fun way of reaching devs and testing out their skills.
+
+We are remote-first!
+
 ## Aerolab careers opportunities
 
-Are your looking for a remote developer job? We are open to work! We have positions for Frontend and Fullstack developers but also there are positions for Product Designers, Project Managers and more! Feel free to apply at https://aerolab.co/jobs
+### 👩‍💻 Are your looking for a remote developer job?
 
+We are open to work! We have remote positions for Frontend and Fullstack developers but also there are positions for Product Designers, Project Managers and more! Feel free to apply at https://aerolab.co/jobs
 
+## Follow us!
 
+Follow Aerolab on social networks
+
+- [Twitter](https://twitter.com/aerolab)
+- [Instagram](https://www.instagram.com/aerolab/)
+- [Dribbble](https://dribbble.com/aerolab)
+- [Behance](https://www.behance.net/aerolab)
+- [Linkedin](https://www.linkedin.com/company/aerolab-digital)
+
+About Us
+
+- [See our case studies](https://aerolab.co/projects)
+- [Read our articles](https://medium.com/aerolab-stories)
+- [Know more about our experience](https://aerolab.co/expertise)
+- [Visit our website](https://aerolab.co/)
+
+🪁
