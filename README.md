@@ -67,7 +67,7 @@ We recommend that you use the following technologies, which are aligned with the
 ### We recommend
 
 - [**NextJS**](https://nextjs.org/) (SSR framework)
-- [**Styled Components**](https://styled-components.com/) (CSS)
+- [**Styled JSX**](https://github.com/vercel/styled-jsx) or [**Styled Components**](https://styled-components.com/) (styles)
 - [**Vercel**](https://vercel.com/) (deploy)
 
 ### Optionally
@@ -77,7 +77,7 @@ We recommend that you use the following technologies, which are aligned with the
 
 > 😎 You can use any additional library you need to carry out the challenge.
 
-> 👍 BTW, we can be flexible if you feel comfortable with any other technology or if you want to combine them in different ways. You can use other stack like *CRA, VueJS, NuxtJS, Remix, Svelte, Angular, React Native, Flutter, Heroku, Digital Ocean, Stitches CSS, Styled JSX,* etc...
+> 👍 BTW, we can be flexible if you feel comfortable with any other technology or if you want to combine them in different ways. You can use other stack like *CRA, VueJS, NuxtJS, Remix, Svelte, Angular, React Native, Flutter, Heroku, Digital Ocean, Stitches CSS, Styled JSX, SASS, CSS Modules,* etc...
 
 ## Design resources
 
