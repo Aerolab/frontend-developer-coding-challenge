@@ -97,6 +97,8 @@ In case you need a hand in getting your site to go live, we recommend you read t
 
 🚀 Once your code is ready send the public link and repository link via email to whoever sent it to you from Aerolab, or you can apply at https://aerolab.co/jobs if you got here some other way.
 
+> _If you feel uncomfortable building fancy user interfaces then try our [alternative challenge](https://github.com/Aerolab/fullstack-developer-coding-challenge) (Disclaimer: we'll prioritize the original challenge)_
+
 ---
 
 ## Aerolab
