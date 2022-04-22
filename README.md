@@ -42,7 +42,7 @@ Feel free to reach one of the following levels of quality based on your skills. 
 
 - *All of above*
 - Make a mobile responsive version
-- Make the Hero/Header section with the big scroll button
+- The "view all products" button (on Hero/Header section) should scroll view to listed products
 - Make the "Browse, Choose, Enjoy" section
 - Put all your effort into making the site look beautiful
 - Pay attention to details and the design system we provide you
