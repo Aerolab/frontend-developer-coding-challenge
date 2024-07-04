@@ -66,8 +66,11 @@ We recommend that you use the following technologies, which are aligned with the
 
 ### We recommend
 
-- [**NextJS**](https://nextjs.org/) (SSR framework)
-- [**Styled JSX**](https://github.com/vercel/styled-jsx) or [**Styled Components**](https://styled-components.com/) (styles)
+- [**NextJS (app router)**](https://nextjs.org/) (SSR framework)
+- [**CSS Modules**](https://github.com/css-modules/css-modules) or maybe:
+  - [**Styled Components**](https://styled-components.com/) (styles)
+  - [**Styled JSX**](https://github.com/vercel/styled-jsx)
+  - [**Tailwind CSS**](https://tailwindcss.com/)
 - [**Vercel**](https://vercel.com/) (deploy)
 
 ### Optionally
