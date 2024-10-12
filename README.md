@@ -103,13 +103,13 @@ This needs to ship. You should upload the project to a public link (we recommend
 
 In case you need a hand in getting your site to go live, we recommend you read the [Vercel Docs](https://vercel.com/docs/concepts/deployments/overview) to help you out.
 
-🚀 Once your code is ready send the public link and repository link via email to whoever sent it to you from Aerolab, or you can apply at https://aerolab.co/jobs if you got here some other way.
+🚀 Once your code is ready send the public link and repository link via email to whoever sent it to you from Aerolab, or you can apply at https://aerolab.co/jobs if you got here some other way.
 
 ### Expected Deliverables
 
 - A live, deployed demo of the project.
 - Access to the codebase via a public repository.
-- API request collection (using Postman or HTTPie).
+- (optional) API request collection (using Postman or HTTPie).
 
 ### Evaluation Criteria
 
