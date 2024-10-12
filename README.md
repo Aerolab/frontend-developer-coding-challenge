@@ -64,6 +64,7 @@ The design should look polished, with consistent styling throughout. Remember, c
 - Users should be able to search for games using a search input.
 - If no games have been collected, an empty state should be displayed.
 - Collected games should be shown as cover art in a grid layout, with sorting options by release date or date added.
+- When a collected game is clicked, the user should be redirected to the game's detail page.
 - (Optional) Users should be able to remove collected games.
 
 ### Search Feature
