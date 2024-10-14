@@ -27,7 +27,7 @@ We recommend using the following technologies to align with the tools we use at 
 - TypeScript for type safety and data modeling.
 - Next.js (App Router) for server-side rendering and routing.
 - Tailwind CSS or CSS Modules for styling.
-- Radix, shadcn, MUI for UI components.
+- Radix, shadcn, NextUI, MUI for UI components.
 - Vercel for deployment.
 - Postman or HTTPie for API request testing.
 - (Optional) React Testing Library for testing.
