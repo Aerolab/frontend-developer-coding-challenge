@@ -95,8 +95,8 @@ The design should look polished, with consistent styling throughout. Remember, c
 - (Optional) Add unit or integration tests.
 
 ## Design resources
-
-🚧 The design is still in progress, and we’ll share the final Figma file once it’s ready. In the meantime, you can work from [wireframes](https://www.figma.com/design/3O7BxHFnSSawJeny3lXWkE/Aerolab-Frontend-Developer-Coding-Challenge---Public?node-id=16692-3191&t=4j9KGkZuF4bA2zbD-4) to complete the challenge. You’re welcome to use any component library, such as shadcn, or even create your own custom designs.
+> [!IMPORTANT]
+> The design is still in progress, and we’ll share the final Figma file once it’s ready. In the meantime, you can work from [wireframes](https://www.figma.com/design/3O7BxHFnSSawJeny3lXWkE/Aerolab-Frontend-Developer-Coding-Challenge---Public?node-id=16692-3191&t=4j9KGkZuF4bA2zbD-4) to complete the challenge. You’re welcome to use any component library, such as shadcn, or even create your own custom designs.
 
 ## Delivery
 
@@ -118,6 +118,8 @@ In case you need a hand in getting your site to go live, we recommend you read t
 - Effective data and state management.
 - Search functionality and user interaction handling.
 - Website performance, including asset optimization, payload size, and loading times.
+- Project documentation (codebase, readme, etc.)
+- Project metadata (open graph, sitemap, favicons, etc.)
 
 ## Aerolab
 
