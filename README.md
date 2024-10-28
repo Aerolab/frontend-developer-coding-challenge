@@ -3,10 +3,10 @@
 > Check out our 2022 coding challenge [here](https://github.com/Aerolab/frontend-developer-coding-challenge/tree/2022)
 
 * [Overview](#Overview)
+* [Design resources](#Design-resources)
 * [Tech Stack](#Tech-Stack)
 * [IGDB API](#IGDB-API)
 * [Requirements](#Requirements)
-* [Design resources](#Design-resources)
 * [Delivery](#Delivery)
 * [About Aerolab and career opportunities](#Aerolab)
 
@@ -16,7 +16,12 @@ Your task is to create a web application that allows users to search for and dig
 
 > You’re welcome to use any additional libraries you find helpful for the challenge.
 
-![wireframes](docs/aerolab-coding-challenge-wireframes.png)
+![image](https://github.com/user-attachments/assets/92b96f68-561e-4326-8e8d-72dec6251b9d)
+
+## Design resources
+> [!IMPORTANT]
+> Access the [Figma design here](https://www.figma.com/design/3O7BxHFnSSawJeny3lXWkE/Aerolab-Frontend-Developer-Coding-Challenge---Public?node-id=16996-5165&t=uLiMR18T28Jegm4s-4) to complete the challenge.
+> Prioritizing responsive/mobile design is essential; the desktop design is optional but we expect at least a clean and polished appearance.
 
 ## Tech Stack
 
@@ -24,13 +29,13 @@ We recommend using the following technologies to align with the tools we use at 
 
 
 ### Recommended Tools
-- TypeScript for type safety and data modeling.
-- Next.js (App Router) for server-side rendering and routing.
+- `TypeScript` for type safety and data modeling.
+- `Next.js` (App Router) for server-side rendering and routing.
 - Tailwind CSS or CSS Modules for styling.
-- Radix, shadcn, NextUI, MUI for UI components.
-- Vercel for deployment.
-- Postman or HTTPie for API request testing.
-- (Optional) React Testing Library for testing.
+- `Radix`, `shadcn`, `NextUI`, `MagicUI`, `MUI` for UI components.
+- `Vercel` for deployment.
+- `Postman` or `HTTPie` for API request testing.
+- (Optional) `React Testing Library` for testing.
 
 > Yes, you can use AI to enhance any part of the project, or even integrate it into your solution.
 
@@ -93,10 +98,6 @@ The design should look polished, with consistent styling throughout. Remember, c
 - Protect environment variables and sensitive data.
 - (Optional) Implement a login system with Supabase or similar.
 - (Optional) Add unit or integration tests.
-
-## Design resources
-> [!IMPORTANT]
-> The design is still in progress, and we’ll share the final Figma file once it’s ready. In the meantime, you can work from [wireframes](https://www.figma.com/design/3O7BxHFnSSawJeny3lXWkE/Aerolab-Frontend-Developer-Coding-Challenge---Public?node-id=16692-3191&t=4j9KGkZuF4bA2zbD-4) to complete the challenge. You’re welcome to use any component library, such as shadcn, or even create your own custom designs.
 
 ## Delivery
 
