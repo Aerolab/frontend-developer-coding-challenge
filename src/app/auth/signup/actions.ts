@@ -1,10 +1,10 @@
 "use server"
 
 import { z } from "zod"
-import { createSession, deleteSession } from "../lib/session"
+import { createSession } from "../lib/session"
 import { redirect } from "next/navigation"
-import * as bcrypt from "bcrypt"
 import { PrismaClient } from "@prisma/client"
+import * as bcrypt from "bcrypt"
 
 const loginSchema = z.object({
   email: z.string().email({ message: "Invalid email address" }).trim(),
@@ -13,7 +13,7 @@ const loginSchema = z.object({
 
 const prisma = new PrismaClient()
 
-export async function login(prevState: any, formData: FormData) {
+export async function signup(prevState: any, formData: FormData) {
   // Validate input
   const result = loginSchema.safeParse(Object.fromEntries(formData))
 
@@ -25,35 +25,25 @@ export async function login(prevState: any, formData: FormData) {
 
   const { email, password } = result.data
 
-  // Check for user in db and password
-  const user = await prisma.user.findUnique({
-    where: { email },
+  // Check user in DB
+  const emailAlreadyExists = await prisma.user.findUnique({ where: { email } })
+
+  if (emailAlreadyExists) {
+    return {
+      errors: {
+        email: ["Email already registered"],
+      },
+    }
+  }
+
+  // Create user and session
+  const hashedPassword = await bcrypt.hash(password, 10)
+
+  const newUser = await prisma.user.create({
+    data: { email, password: hashedPassword },
   })
-
-  if (!user) {
-    return {
-      errors: {
-        email: ["Email not registered, signup first please"],
-      },
-    }
-  }
-
-  const passwordMatch = await bcrypt.compare(password, user.password)
-
-  if (!passwordMatch) {
-    return {
-      errors: {
-        password: ["Wrong password"],
-      },
-    }
-  }
 
   await createSession(email)
 
   redirect("/")
-}
-
-export async function logout() {
-  await deleteSession()
-  redirect("/auth/login")
 }

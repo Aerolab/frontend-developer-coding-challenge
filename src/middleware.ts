@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server"
 import { decrypt } from "./app/auth/lib/session"
 
 const protectedRoutes = ["/"]
-const publicRoutes = ["/auth/login"]
+const publicRoutes = ["/auth/login", "/auth/signup"]
 
 export default async function middleware(req: NextRequest) {
   const path = req.nextUrl.pathname
