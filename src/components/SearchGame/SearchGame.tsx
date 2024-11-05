@@ -12,13 +12,13 @@ function SearchGame() {
   const [state, formAction] = useActionState(searchGameAction, { games: [], input: "" })
 
   const [showResults, setShowResults] = useState(false)
-  const [opacityIcon, setOpacityIcon] = useState(50)
+  const [opacityIcon, setOpacityIcon] = useState("50%")
 
   const inputRef = useRef<HTMLInputElement>(null)
 
   const handleClickOutside = () => {
+    setOpacityIcon("50%")
     setShowResults(false)
-    setOpacityIcon(50)
   }
 
   const resetSearch = async () => {
@@ -28,7 +28,7 @@ function SearchGame() {
 
   const handleFocus = () => {
     setShowResults(true)
-    setOpacityIcon(100)
+    setOpacityIcon("100%")
   }
 
   return (
@@ -45,7 +45,9 @@ function SearchGame() {
           onFocus={handleFocus}
           defaultValue={state?.input}
           style={
-            showResults ? { borderBottomLeftRadius: 0, borderBottomRightRadius: 0 } : undefined
+            showResults
+              ? { borderBottomLeftRadius: 0, borderBottomRightRadius: 0 }
+              : { color: "gray" }
           }
           autoComplete="off"
         />

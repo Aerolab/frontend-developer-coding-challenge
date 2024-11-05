@@ -1,8 +1,8 @@
 import React from "react"
 
-function SearchIcon({ opacityIcon }: { opacityIcon: number }) {
+function SearchIcon({ opacityIcon }: { opacityIcon: string }) {
   return (
-    <span className={`absolute left-4 top-3 opacity-${opacityIcon}`}>
+    <span className={`absolute left-4 top-3`} style={{ opacity: opacityIcon }}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
