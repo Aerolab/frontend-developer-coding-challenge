@@ -28,6 +28,7 @@ export interface Game {
   id: number
   cover: {
     id: number
+    image_id: string
     url: string
     height: number
     width: number
