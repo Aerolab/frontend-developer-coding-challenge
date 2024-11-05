@@ -10,7 +10,9 @@ function Navbar() {
   return (
     <nav className="flex items-center justify-between px-6 py-4 bg-black text-white shadow-md">
       <div className="text-lg font-semibold">
-        <Link href="/">Brand</Link>
+        <Link className="z-10" href="/">
+          Brand
+        </Link>
       </div>
 
       <div className="flex gap-4">
@@ -18,7 +20,7 @@ function Navbar() {
           <>
             <Link
               href="/auth/signup"
-              className={`hover:text-gray-300 transition-colors duration-200 ${
+              className={`z-10 hover:text-gray-300 transition-colors duration-200 ${
                 pathname === "/auth/signup" ? " border-b-2" : ""
               }`}
             >
@@ -27,7 +29,7 @@ function Navbar() {
 
             <Link
               href="/auth/login"
-              className={`hover:text-gray-300 transition-colors duration-200 ${
+              className={`z-10 hover:text-gray-300 transition-colors duration-200 ${
                 pathname === "/auth/login" ? "border-b-2" : ""
               }`}
             >
@@ -37,7 +39,7 @@ function Navbar() {
         ) : (
           <button
             onClick={() => logout()}
-            className="hover:text-gray-300 transition-colors duration-200 focus:outline-none"
+            className="hover:text-gray-300 transition-colors duration-200 focus:outline-none z-10"
           >
             Logout
           </button>
