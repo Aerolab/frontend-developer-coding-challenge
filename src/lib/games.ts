@@ -1,40 +1,16 @@
-// Obs: the generated access token expires in 62 days
-// For the challenge I just put in the process.env
+// Obs:
+// the generated access token expires in 62 days
+// For the challenge and to keep it simple, I just put it in the process.env
 //
+// But could be better checking the expiration time before using it and generating a new one if necessary
+//
+// Other strategy could be generating a shorter user session than the api token expiration,
+// and generate a new token in every new user session.
+//  => timeToken > timeSession and you always get a new one when login
+
+import { Game, GameDetails } from "@/types/games"
 
 const BASE_URL = "https://api.igdb.com/v4"
-
-interface GameDetails {
-  id: number
-  category: number
-  cover: number
-  first_release_date: number
-  genres: number[]
-  involved_companies: number[]
-  name: string
-  platforms: number[]
-  screenshots: number[]
-  similar_games: number[]
-  slug: string
-  storyline: string
-  summary: string
-  tags: number[]
-  url: string
-  videos: number[]
-  checksum: string
-}
-
-export interface Game {
-  id: number
-  cover: {
-    id: number
-    image_id: string
-    url: string
-    height: number
-    width: number
-  }
-  name: string
-}
 
 export async function searchGames(gameName: string): Promise<Game[]> {
   try {
@@ -55,6 +31,30 @@ export async function searchGames(gameName: string): Promise<Game[]> {
 
     return games
   } catch (error) {
+    throw Error("Error searching game")
+  }
+}
+
+export async function searchGameById(id: string): Promise<GameDetails> {
+  try {
+    const res = await fetch(BASE_URL + "/games", {
+      method: "POST",
+      body: `fields *, cover.*; where id = (${id});`,
+      headers: {
+        "Client-ID": process.env.CLIENT_ID_TWITCH as string,
+        Authorization: `Bearer ${process.env.IGBD_TOKEN}` as string,
+      },
+    })
+
+    if (!res.ok) {
+      throw new Error(`Error searching game`)
+    }
+
+    const games = await res.json()
+    const game = games[0]
+    return game
+  } catch (error) {
+    console.log(error)
     throw Error("Error searching game")
   }
 }
