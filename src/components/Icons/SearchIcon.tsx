@@ -1,12 +1,12 @@
 import React from "react"
 
-function SearchIcon({ opacityIcon }: { opacityIcon: string }) {
+function SearchIcon() {
   return (
-    <span className={`absolute left-4 top-3`} style={{ opacity: opacityIcon }}>
+    <span className={`absolute left-4 top-3 opacity-50 peer-focus:opacity-100`}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
+        width="18"
+        height="18"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"

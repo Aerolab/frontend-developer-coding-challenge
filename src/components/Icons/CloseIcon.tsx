@@ -1,9 +1,8 @@
-function CloseIcon({ onClick }: { onClick: () => void }) {
+// Manage closing the results
+// No logic just css - using "peer" selector to change visibility of elements
+function CloseIcon() {
   return (
-    <span
-      onClick={onClick}
-      className="absolute right-4 top-3 cursor-pointer hover:opacity-100 hover:bg-black hover:text-white"
-    >
+    <span className="hidden peer-focus:inline hover:inline absolute right-4 top-3 cursor-pointer hover:bg-black hover:text-white">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"

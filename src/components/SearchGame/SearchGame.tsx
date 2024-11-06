@@ -1,100 +1,36 @@
-"use client"
+// Obs:
+// The url is the source of truth
+// query is extracted from url and need to be passed as a prop to the SearchGame component
+// from the page using the app router
 
 import Link from "next/link"
-import { searchGameAction, SearchState } from "./action"
-import { startTransition, useActionState, useRef, useState } from "react"
-import { useFormStatus } from "react-dom"
-import SearchIcon from "../Icons/SearchIcon"
-import { Game } from "@/lib/games"
-import CloseIcon from "../Icons/CloseIcon"
+import { Game } from "@/types/games"
+import Input from "./Input"
+import { searchGames } from "@/lib/games"
+import { Suspense } from "react"
 
-function SearchGame() {
-  const [state, formAction] = useActionState(searchGameAction, { games: [], input: "" })
-
-  const [showResults, setShowResults] = useState(false)
-  const [opacityIcon, setOpacityIcon] = useState("50%")
-
-  const inputRef = useRef<HTMLInputElement>(null)
-
-  const handleClickOutside = () => {
-    setOpacityIcon("50%")
-    setShowResults(false)
-  }
-
-  const resetSearch = async () => {
-    startTransition(() => formAction(new FormData()))
-    inputRef.current?.focus()
-  }
-
-  const handleFocus = () => {
-    setShowResults(true)
-    setOpacityIcon("100%")
-  }
-
+export default function SearchGame({ query }: { query: string }) {
   return (
-    <>
-      <form action={formAction} className="relative z-10">
-        <SearchIcon opacityIcon={opacityIcon} />
-        <input
-          ref={inputRef}
-          className="w-[358px] bg-white bg-opacity-100 p-2 pl-11 border border-pink-600 rounded-[20px] focus:outline-none"
-          type="text"
-          name="search"
-          id="search"
-          placeholder="Search games..."
-          onFocus={handleFocus}
-          defaultValue={state?.input}
-          style={
-            showResults
-              ? { borderBottomLeftRadius: 0, borderBottomRightRadius: 0 }
-              : { color: "gray" }
-          }
-          autoComplete="off"
-        />
-        {state.input && <CloseIcon onClick={resetSearch} />}
+    <div className="relative z-10">
+      <Input />
 
-        <button className="hidden">Search</button>
-
-        <Results state={state} showResults={showResults} />
-      </form>
-
-      {/* Div to track click outside the results and close them */}
-      <div
-        className="absolute top-0 left-0 right-0 bottom-0 z-0"
-        onClick={handleClickOutside}
-      ></div>
-    </>
+      <Suspense key={query} fallback={<Loading />}>
+        <Results query={query} />
+      </Suspense>
+    </div>
   )
 }
 
-export default SearchGame
+async function Results({ query }: { query: string }) {
+  const games = query ? await searchGames(query) : []
 
-function Results({ state, showResults }: { state: SearchState; showResults: boolean }) {
-  const { pending } = useFormStatus()
+  return (
+    <ul className="hidden peer-focus:flex hover:flex flex-col gap-1 border absolute top-10 w-full bg-white shadow-lg z-10 rounded-bl-[20px] rounded-br-[20px] p-2 border-pink-600">
+      {games.length > 0 && games.map((item) => <ResultsItem item={item} key={item.id} />)}
 
-  if (pending) {
-    return (
-      <ul className="flex flex-col gap-1 border absolute top-10 w-full bg-white shadow-lg z-10 rounded-bl-[20px] rounded-br-[20px] p-2 border-pink-600">
-        <li className="p-2 text-center">Loading...</li>
-      </ul>
-    )
-  }
-
-  if (state.games.length > 0 && showResults)
-    return (
-      <ul className="flex flex-col gap-1 border absolute top-10 w-full bg-white shadow-lg z-10 rounded-bl-[20px] rounded-br-[20px] p-2 border-pink-600">
-        {state.games.map((item) => (
-          <ResultsItem item={item} key={item.id} />
-        ))}
-      </ul>
-    )
-
-  if (state.games.length === 0 && showResults)
-    return (
-      <ul className="flex flex-col gap-1 border absolute top-10 w-full bg-white shadow-lg z-10 rounded-bl-[20px] rounded-br-[20px] p-2 border-pink-600">
-        <li className="p-2 text-center">No results</li>
-      </ul>
-    )
+      {games.length === 0 && <li className="p-2 text-center">No results</li>}
+    </ul>
+  )
 }
 
 function ResultsItem({ item }: { item: Game }) {
@@ -113,5 +49,13 @@ function ResultsItem({ item }: { item: Game }) {
         <p>{item.name}</p>
       </Link>
     </li>
+  )
+}
+
+function Loading() {
+  return (
+    <ul className="hidden peer-focus:flex flex-col gap-1 border absolute top-10 w-full bg-white shadow-lg z-10 rounded-bl-[20px] rounded-br-[20px] p-2 border-pink-600">
+      <li className="p-2 text-center">Loading...</li>
+    </ul>
   )
 }
