@@ -16,6 +16,39 @@
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  /* background: var(--background); */
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer components {
+  .bg-mobile {
+    background-image: url("/background_mobile.jpg");
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    height: 276px;
+  }
+  .bg-desktop {
+    background-image: url("/background_desktop.jpg");
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    height: 296px;
+  }
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #6727a6, #3c1661);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (min-width: 640px) {
+  h1 {
+    font-size: 24px;
+  }
 }
