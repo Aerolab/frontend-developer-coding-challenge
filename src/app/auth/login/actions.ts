@@ -44,7 +44,7 @@ export async function login(prevState: any, formData: FormData) {
     }
   }
 
-  await createSession(email)
+  await createSession(user.id, email)
 
   redirect("/")
 }

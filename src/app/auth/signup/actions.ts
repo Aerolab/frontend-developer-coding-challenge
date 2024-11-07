@@ -39,7 +39,7 @@ export async function signup(prevState: any, formData: FormData) {
 
   const newUser = await createUser(email, hashedPassword)
 
-  await createSession(email)
+  await createSession(newUser.id, email)
 
   redirect("/")
 }
