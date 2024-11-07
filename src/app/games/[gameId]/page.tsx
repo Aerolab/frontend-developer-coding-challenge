@@ -53,15 +53,47 @@ async function GameDetails({ gameId }: { gameId: string }) {
         />
 
         <div>
-          <h1>{game.name}</h1>
-          <p>{company}</p>
+          <h1>NAME: {game.name}</h1>
+
+          <p>COMPANY {company}</p>
+
+          <p>RATING: {game.rating}</p>
+
+          <p>DATE: {new Date(game.first_release_date * 1000).toLocaleDateString()}</p>
+
+          <h2>GENRES</h2>
+          {game.genres.map((item) => (
+            <p key={item.id}>{item.name}</p>
+          ))}
+
+          <h2>SUMMARY</h2>
+          <p>{game.summary}</p>
+
+          <h2>PLATFORMS</h2>
+          {game.platforms.map((item) => (
+            <p key={item.id}>{item.name}</p>
+          ))}
 
           {/* {game.screenshots.map((item) => (
             <img
-              key={item.id}
-              src={`https://images.igdb.com/igdb/image/upload/t_screenshot_med/${item.image_id}.jpg`}
+            key={item.id}
+            src={`https://images.igdb.com/igdb/image/upload/t_screenshot_med/${item.image_id}.jpg`}
             />
-          ))} */}
+            ))} */}
+
+          <h2>SIMILAR GAMES</h2>
+          <div className="grid grid-cols-4">
+            {game.similar_games.map((item) => (
+              <div key={item.id}>
+                <p>{item.name}</p>
+
+                <img
+                  className="h-[50px]"
+                  src={`https://images.igdb.com/igdb/image/upload/t_screenshot_med/${item.cover.image_id}.jpg`}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </main>

@@ -1,15 +1,6 @@
 export interface GameDetails {
   id: number
-  category: number
-  cover: {
-    id: number
-    image_id: string
-    url: string
-    height: number
-    width: number
-  }
-  first_release_date: number
-  genres: number[]
+  name: string
   involved_companies: {
     publisher: boolean
     company: {
@@ -17,20 +8,23 @@ export interface GameDetails {
       name: string
     }
   }[]
-  name: string
-  platforms: number[]
+  rating: number
+  first_release_date: number
+  genres: { id: number; name: string }[]
+  summary: string
+  cover: {
+    id: number
+    image_id: string
+    url: string
+    height: number
+    width: number
+  }
+  platforms: { id: number; name: string }[]
   screenshots: {
     id: number
     image_id: string
   }[]
-  similar_games: number[]
-  slug: string
-  storyline: string
-  summary: string
-  tags: number[]
-  url: string
-  videos: number[]
-  checksum: string
+  similar_games: { id: number; name: string; cover: { id: number; image_id: string } }[]
 }
 
 export interface Game {
