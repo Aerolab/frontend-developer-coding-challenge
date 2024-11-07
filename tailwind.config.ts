@@ -8,6 +8,22 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        fadeInUp: {
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        fadeInLong: {
+          "0%": { opacity: "0" },
+          "90%": { opacity: "0", transform: "scale(0)" },
+          "100%": { opacity: "1", transform: "scale(1)" },
+        },
+      },
+      animation: {
+        fadeInUpShort: "fadeInUp 0.5s ease-in-out",
+        fadeInUpLong: "fadeInUp 1.5s ease-in-out",
+        fadeInLong: "fadeInLong 4.5s ease-out",
+      },
       screens: { bgBreakpoint: "390px" },
       colors: {
         background: "var(--background)",
