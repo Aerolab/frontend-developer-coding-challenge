@@ -6,8 +6,9 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { MouseEvent, useState } from "react"
 import Mario from "@/components/animations/Mario"
+import { SessionType } from "@/lib/session"
 
-function Navbar() {
+function Navbar({ session }: { session: SessionType }) {
   const pathname = usePathname()
   const [showHoverAnimation, setShowHoverAnimation] = useState(false)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -30,37 +31,36 @@ function Navbar() {
       onMouseLeave={handleHoverOutNav}
       onMouseMove={(e) => handleMouseMove(e)}
     >
-      <Link className="z-10 cursor-pointer rerlative" href="/">
+      <Link className="z-10 cursor-pointer animate-fadeInLong " href="/">
         <Image width={30} height={30} src={"/aerolab-logo.svg"} alt="Logo image" />
       </Link>
 
-      <div className="flex gap-4">
-        {pathname !== "/" ? (
-          <>
-            <Link
-              href="/auth/signup"
-              className={`z-10 hover:text-gray-300 ${
-                pathname === "/auth/signup" ? " border-b-2" : ""
-              }`}
-            >
-              Signup
-            </Link>
+      {!session.isAuth ? (
+        <div className="flex gap-4">
+          <Link
+            href="/auth/signup"
+            className={`z-10 hover:text-gray-300 ${
+              pathname === "/auth/signup" ? " border-b-2" : ""
+            }`}
+          >
+            Signup
+          </Link>
 
-            <Link
-              href="/auth/login"
-              className={`z-10 hover:text-gray-300 ${
-                pathname === "/auth/login" ? "border-b-2" : ""
-              }`}
-            >
-              Login
-            </Link>
-          </>
-        ) : (
+          <Link
+            href="/auth/login"
+            className={`z-10 hover:text-gray-300 ${pathname === "/auth/login" ? "border-b-2" : ""}`}
+          >
+            Login
+          </Link>
+        </div>
+      ) : (
+        <div className="flex gap-4 flex-1 animate-fadeInLong ">
+          <span className="mx-auto">{session.email?.split("@")[0]}</span>
           <button onClick={() => logout()} className="hover:text-gray-300">
             Logout
           </button>
-        )}
-      </div>
+        </div>
+      )}
 
       {showHoverAnimation && <Mario positionX={mousePosition.x} />}
     </nav>
