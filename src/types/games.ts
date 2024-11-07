@@ -10,10 +10,19 @@ export interface GameDetails {
   }
   first_release_date: number
   genres: number[]
-  involved_companies: number[]
+  involved_companies: {
+    publisher: boolean
+    company: {
+      id: number
+      name: string
+    }
+  }[]
   name: string
   platforms: number[]
-  screenshots: number[]
+  screenshots: {
+    id: number
+    image_id: string
+  }[]
   similar_games: number[]
   slug: string
   storyline: string

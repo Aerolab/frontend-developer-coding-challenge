@@ -39,7 +39,7 @@ export async function searchGameById(id: string): Promise<GameDetails> {
   try {
     const res = await fetch(BASE_URL + "/games", {
       method: "POST",
-      body: `fields *, cover.*; where id = (${id});`,
+      body: `fields *, cover.*, platforms.*, screenshots.image_id, involved_companies.publisher, involved_companies.company.name; where id = (${id});`,
       headers: {
         "Client-ID": process.env.CLIENT_ID_TWITCH as string,
         Authorization: `Bearer ${process.env.IGBD_TOKEN}` as string,
