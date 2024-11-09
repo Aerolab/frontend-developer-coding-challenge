@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { useEffect } from "react"
 
 export default function Error({
@@ -15,15 +16,23 @@ export default function Error({
   }, [error])
 
   return (
-    <main className="flex h-full flex-col items-center justify-center">
-      <h2 className="text-center"> Something went wrong! </h2>
+    <main className="flex h-full flex-col items-center justify-center gap-2">
+      <h2 className="text-center text-xl mt-6"> Ups... Something went wrong! </h2>
+
       {error.message && <p className="text-center"> {error.message} </p>}
-      <button
-        className="mt-4 rounded-md bg-blue-500 px-4 py-2 text-sm text-white transition-colors hover:bg-blue-400"
-        onClick={() => reset()}
+
+      <Link
+        href={"/"}
+        className="btn my-4 font-bold text-lg text-center bg-red text-white tracking-wider h-auto"
       >
-        Try again
-      </button>
+        Back Home
+      </Link>
+
+      <img
+        src="/error-page.jpg"
+        alt="error image game over arcade"
+        className="w-full max-w-[680px] mt-1 rounded-lg"
+      />
     </main>
   )
 }
