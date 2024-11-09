@@ -32,7 +32,7 @@ function Navbar({ session }: { session: SessionType }) {
       onMouseMove={(e) => handleMouseMove(e)}
     >
       <Link className="z-10 cursor-pointer animate-fadeInLong " href="/">
-        <Image width={30} height={30} src={"/aerolab-logo.svg"} alt="Logo image" />
+        <img width={30} height={30} src={"/aerolab-logo.svg"} alt="Logo image" />
       </Link>
 
       {!session.isAuth ? (

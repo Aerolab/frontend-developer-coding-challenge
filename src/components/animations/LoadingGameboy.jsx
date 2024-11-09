@@ -19,5 +19,9 @@ export default function LoadingGameboy() {
     return () => animationInstance.destroy()
   }, [])
 
-  return <div ref={animationContainer} className="lottie w-52 flex items-center mt-20"></div>
+  return (
+    <div className="mx-auto">
+      <div ref={animationContainer} className="lottie w-52 flex items-center mt-20"></div>
+    </div>
+  )
 }
