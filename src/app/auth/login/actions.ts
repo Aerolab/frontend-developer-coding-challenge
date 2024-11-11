@@ -18,6 +18,7 @@ export async function login(prevState: any, formData: FormData) {
   if (!result.success) {
     return {
       errors: result.error.flatten().fieldErrors,
+      email: formData.get("email")?.toString() || "",
     }
   }
 
@@ -31,6 +32,7 @@ export async function login(prevState: any, formData: FormData) {
       errors: {
         email: ["Email not registered, signup first please"],
       },
+      email,
     }
   }
 
@@ -41,6 +43,7 @@ export async function login(prevState: any, formData: FormData) {
       errors: {
         password: ["Wrong password"],
       },
+      email,
     }
   }
 

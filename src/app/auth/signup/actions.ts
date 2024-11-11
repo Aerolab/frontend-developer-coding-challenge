@@ -18,6 +18,7 @@ export async function signup(prevState: any, formData: FormData) {
   if (!result.success) {
     return {
       errors: result.error.flatten().fieldErrors,
+      email: formData.get("email")?.toString() || "",
     }
   }
 
@@ -31,6 +32,7 @@ export async function signup(prevState: any, formData: FormData) {
       errors: {
         email: ["Email already registered"],
       },
+      email,
     }
   }
 

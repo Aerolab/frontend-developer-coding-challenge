@@ -16,8 +16,9 @@ export function SignupForm() {
           name="email"
           placeholder="Email"
           className="border border-black rounded-md px-2 py-1"
+          defaultValue={state?.email || ""}
         />
-        {state?.errors?.email && <p className="text-red-500">{state.errors.email}</p>}
+        {state?.errors?.email && <p className="text-sm text-red">{state.errors.email}</p>}
       </div>
 
       {/* Password */}
@@ -29,7 +30,7 @@ export function SignupForm() {
           placeholder="Password"
           className="border border-black rounded-md px-2 py-1"
         />
-        {state?.errors?.password && <p className="text-red-500">{state.errors.password}</p>}
+        {state?.errors?.password && <p className="text-sm text-red">{state.errors.password}</p>}
       </div>
 
       <SubmitButton />
