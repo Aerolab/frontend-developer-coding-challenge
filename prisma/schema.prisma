@@ -11,30 +11,28 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model User {
-  id            Int @id @default(autoincrement())
-  email         String  @unique
-  password      String
-  games         Game[]
-  created_at    DateTime @default(now())
-  updated_at    DateTime @updatedAt
+  id                Int @id @default(autoincrement())
+  email             String  @unique
+  password          String
+  collected_games   CollectedGame[]
+  created_at        DateTime @default(now())
+  updated_at        DateTime @updatedAt
 }
 
-model Game{
-  id              Int @id @default(autoincrement())
-  igbd_id         Int
-  name            String
-  slug            String
-  summary         String
-  storyline       String
-  url             String
-  cover           String
+model CollectedGame{
+  id                  Int @id @default(autoincrement())
+  igbd_id             Int
+  name                String
+  coverImgUrl         String
+  first_release_date  DateTime
   // User rel
-  user_id         Int
-  user            User @relation(fields: [user_id], references: [id])
+  user_id             Int
+  user                User @relation(fields: [user_id], references: [id], onDelete: Cascade)
   //
-  created_at      DateTime @default(now())
-  updated_at      DateTime @updatedAt
+  created_at          DateTime @default(now())
+  updated_at          DateTime @updatedAt
 }

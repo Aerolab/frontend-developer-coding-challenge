@@ -1,12 +1,17 @@
 import SearchGame from "@/components/SearchGame/SearchGame"
 import Image from "next/image"
 import Tetris from "@/components/animations/Tetris"
+import { verifySession } from "@/lib/session"
+import { getCollectedGamesbyUser } from "@/lib/users"
 
 type SearchParams = Promise<{ query: string | undefined }>
 
 export default async function Home(props: { searchParams: SearchParams }) {
   const searchParams = await props.searchParams
   const query = searchParams?.query || ""
+
+  const session = await verifySession()
+  const gamesColected = session.userId ? await getCollectedGamesbyUser(session.userId) : []
 
   return (
     <>
@@ -25,6 +30,8 @@ export default async function Home(props: { searchParams: SearchParams }) {
         <SearchGame query={query} />
 
         <Tetris />
+
+        {gamesColected && gamesColected.map((item) => <div key={item.id}>{item.name}</div>)}
       </main>
     </>
   )

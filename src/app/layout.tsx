@@ -3,6 +3,7 @@ import "./globals.css"
 import Navbar from "@/components/Navbar"
 import { Inter } from "next/font/google"
 import { verifySession } from "@/lib/session"
+import { Toaster } from "@/components/ui/toaster"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -32,6 +33,8 @@ export default async function RootLayout({
           <div className="bg-mobile bgBreakpoint:bg-desktop absolute top-[50px] left-0 right-0 -z-10"></div>
           <div className="grid justify-items-center gap-6">{children}</div>
         </div>
+
+        <Toaster />
       </body>
     </html>
   )

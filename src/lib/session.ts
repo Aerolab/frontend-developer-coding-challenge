@@ -52,8 +52,7 @@ export async function decrypt(session: string | undefined = "") {
     })
     return payload
   } catch (error) {
-    console.log(error)
-    console.log("Failed to verify session")
+    return null
   }
 }
 
@@ -65,5 +64,9 @@ export const verifySession = cache(async () => {
     return { isAuth: false, userId: undefined, email: undefined } as SessionType
   }
 
-  return { isAuth: true, userId: session.userId, email: session.email } as SessionType
+  return {
+    isAuth: true,
+    userId: session.userId,
+    email: session.email,
+  } as SessionType
 })

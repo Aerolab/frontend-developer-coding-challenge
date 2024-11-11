@@ -1,7 +1,6 @@
 "use client"
 
 import { logout } from "@/app/auth/login/actions"
-import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { MouseEvent, useState } from "react"

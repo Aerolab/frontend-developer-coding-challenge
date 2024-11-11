@@ -12,13 +12,23 @@ import {
   SimilarGames,
   Summary,
 } from "@/components/GameDetails"
+import type { Metadata } from "next"
 
-type paramsType = {
+type Props = {
   params: Promise<{ gameId: string }>
   searchParams: Promise<{ query?: string }>
 }
 
-export default async function GameDetailsPage({ params, searchParams }: paramsType) {
+export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
+  const gameId = (await params).gameId
+  const game = await searchGameById(gameId)
+
+  return {
+    title: game.name,
+  }
+}
+
+export default async function GameDetailsPage({ params, searchParams }: Props) {
   const gameId = (await params).gameId
   const query = (await searchParams).query || ""
 

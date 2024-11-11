@@ -1,6 +1,13 @@
 import { GameDetails } from "@/types/games"
+import CollectGameButton from "./CollectGameButton"
+import { getCollectedGamesbyUser } from "@/lib/users"
+import { verifySession } from "@/lib/session"
 
-export default function CoverAndTitle({ game }: { game: GameDetails }) {
+export default async function CoverAndTitle({ game }: { game: GameDetails }) {
+  const session = await verifySession()
+  const userId = session.userId! //This route is protected via middleware, user exists
+  const gamesCollected = await getCollectedGamesbyUser(userId)
+
   // It appears that the igbd api does not support nested queries for filtering 'where'
   // So I filtered here to get the name of the publisher company.
   // Also, there are games with undefined property 'involved_companies' and publisher=true
@@ -39,9 +46,8 @@ export default function CoverAndTitle({ game }: { game: GameDetails }) {
           <h1>{game.name}</h1>
           <h3>{company}</h3>
         </div>
-        <button className="btn col-span-2 sm:col-span-1 sm:col-start-2 sm:max-w-[180px] sm:ml-3">
-          Collect game
-        </button>
+
+        <CollectGameButton game={game} gamesCollected={gamesCollected} />
       </div>
     </>
   )

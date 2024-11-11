@@ -8,6 +8,7 @@ import { Game } from "@/types/games"
 import Input from "./Input"
 import { searchGames } from "@/lib/games"
 import { Suspense } from "react"
+import { LoaderCircle } from "lucide-react"
 
 export default function SearchGame({ query }: { query: string }) {
   return (
@@ -55,7 +56,9 @@ function ResultsItem({ item }: { item: Game }) {
 function Loading() {
   return (
     <ul className="hidden peer-focus:flex flex-col gap-1 border absolute top-10 w-full bg-white shadow-lg z-10 rounded-bl-[20px] rounded-br-[20px] p-2 border-pink-600">
-      <li className="p-2 text-center">Loading...</li>
+      <li className="p-2">
+        <LoaderCircle className="animate-spin mx-auto" />
+      </li>
     </ul>
   )
 }

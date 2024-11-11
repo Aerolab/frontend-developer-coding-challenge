@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client"
+import { CollectedGame, PrismaClient } from "@prisma/client"
 
 const prisma = new PrismaClient()
 
@@ -19,5 +19,47 @@ export async function createUser(email: string, hashedPassword: string) {
     })
   } catch (error) {
     throw new Error("Ups... Something went wrong accessing the database. Try again please")
+  }
+}
+
+type addGamePayload = {
+  igbd_id: number
+  name: string
+  coverImgUrl: string
+  first_release_date: Date
+  user_id: number
+}
+
+export async function addGameToUser(data: addGamePayload) {
+  try {
+    const user = await prisma.user.findUnique({ where: { id: data.user_id } })
+    if (!user) {
+      throw Error("User not found in db")
+    }
+
+    const gameAllReadyCollected = await prisma.collectedGame.findFirst({
+      where: { igbd_id: data.igbd_id },
+    })
+    if (gameAllReadyCollected) {
+      throw Error("Game allready in db")
+    }
+
+    return prisma.collectedGame.create({ data })
+  } catch (error: any) {
+    throw new Error(
+      error.message || "Ups... Something went wrong accessing the database. Try again please"
+    )
+  }
+}
+
+export async function getCollectedGamesbyUser(userId: number) {
+  try {
+    const collectedGames = await prisma.collectedGame.findMany({ where: { user_id: userId } })
+
+    return collectedGames
+  } catch (error: any) {
+    throw new Error(
+      error.message || "Ups... Something went wrong accessing the database. Try again please"
+    )
   }
 }
