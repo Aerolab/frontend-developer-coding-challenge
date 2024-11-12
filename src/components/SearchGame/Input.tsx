@@ -28,7 +28,7 @@ export default function Input() {
   return (
     <>
       <input
-        className="peer w-full sm:w-[358px] bg-white p-2 pl-11 border border-pink-600 rounded-[20px] text-gray-500 focus:text-black focus:outline-none focus:rounded-b-none"
+        className="peer w-full sm:w-[384px] bg-white p-2 pl-11 border border-pink-600 border-opacity-20 rounded-[20px] text-gray-500 focus:text-black focus:outline-none focus:rounded-b-none shadow"
         type="text"
         name="query"
         id="query"

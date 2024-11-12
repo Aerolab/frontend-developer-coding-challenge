@@ -37,7 +37,7 @@ const config: Config = {
       animation: {
         fadeInUpShort: "fadeInUp 0.5s ease-in-out",
         fadeInUpLong: "fadeInUp 1.5s ease-in-out",
-        fadeInLong: "fadeInLong 4.5s ease-out",
+        fadeInLong: "fadeInLong 4s ease-out",
       },
       screens: {
         bgBreakpoint: "390px",
