@@ -5,7 +5,6 @@ import { collectGame } from "./actions"
 import { useFormStatus } from "react-dom"
 import { LoaderCircle } from "lucide-react"
 import { CollectedGame } from "@prisma/client"
-import { Toaster } from "@/components/ui/toaster"
 import { useToast } from "@/hooks/use-toast"
 
 export default function CollectGameButton({
@@ -41,11 +40,11 @@ export default function CollectGameButton({
   return (
     <form
       action={collectGameAction}
-      className="btn col-span-2 sm:col-span-1 sm:col-start-2 sm:max-w-[180px] sm:ml-3"
+      className="col-span-2 sm:col-span-1 sm:col-start-2 sm:max-w-[180px] sm:ml-3"
     >
       <input name="gameId" value={game.id} type="text" hidden readOnly />
       <input name="name" value={game.name} type="text" hidden readOnly />
-      <input name="coverImgUrl" value={game.cover?.url} type="text" hidden readOnly />
+      <input name="coverImgUrl" value={game.cover?.image_id} type="text" hidden readOnly />
       <input name="date" value={game.first_release_date} type="text" hidden readOnly />
 
       <SubmitButton />
@@ -57,7 +56,7 @@ function SubmitButton() {
   const { pending } = useFormStatus()
 
   return (
-    <button disabled={pending} type="submit" className="w-full relative">
+    <button disabled={pending} type="submit" className="btn w-full relative">
       {pending ? <LoaderCircle className="animate-spin mx-auto" /> : "Collect game"}
     </button>
   )

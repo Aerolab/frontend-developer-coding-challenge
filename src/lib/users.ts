@@ -63,3 +63,12 @@ export async function getCollectedGamesbyUser(userId: number) {
     )
   }
 }
+
+export async function deleteGameOfUser(igbd_id: number, user_id: number) {
+  try {
+    return prisma.collectedGame.deleteMany({ where: { igbd_id, user_id } })
+  } catch (error) {
+    console.error("Error deleting game:", error)
+    throw new Error("Failed to delete game")
+  }
+}

@@ -2,13 +2,17 @@
 
 import { logout } from "@/app/auth/login/actions"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { usePathname, useSearchParams } from "next/navigation"
 import { MouseEvent, useState } from "react"
 import Mario from "@/components/animations/Mario"
 import { SessionType } from "@/lib/session"
 
 function Navbar({ session }: { session: SessionType }) {
   const pathname = usePathname()
+
+  const searchParams = useSearchParams()
+  const currentSort = searchParams.get("sort")
+
   const [showHoverAnimation, setShowHoverAnimation] = useState(false)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
@@ -30,7 +34,10 @@ function Navbar({ session }: { session: SessionType }) {
       onMouseLeave={handleHoverOutNav}
       onMouseMove={(e) => handleMouseMove(e)}
     >
-      <Link className="z-10 cursor-pointer animate-fadeInLong " href="/">
+      <Link
+        className="z-10 cursor-pointer animate-fadeInLong "
+        href={currentSort ? `/?sort=${currentSort}` : "/"}
+      >
         <img width={30} height={30} src={"/aerolab-logo.svg"} alt="Logo image" />
       </Link>
 

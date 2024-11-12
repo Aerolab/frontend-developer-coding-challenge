@@ -12,10 +12,10 @@ export async function collectGame(prevState: any, formData: FormData) {
 
   const igbd_id = Number(formData.get("gameId"))
   const name = formData.get("name")?.toString()
-  const coverImgUrl = formData.get("coverImgUrl")?.toString() || "/No-Image-Placeholder.svg"
+  const coverImgUrl = formData.get("coverImgUrl")?.toString() || ""
   const date = Number(formData.get("date")) || 1
 
-  if (!igbd_id || !name || !coverImgUrl || !date) {
+  if (!igbd_id || !name || !date) {
     return { success: false, error: "Missing field in game to collect" }
   }
 
