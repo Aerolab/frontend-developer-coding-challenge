@@ -29,6 +29,7 @@ export default function CollectGameButton({
       toast({
         title: "Game collected",
         description: `${game.name} has been added to your collection`,
+        duration: 4000,
       })
     }
   }, [state])

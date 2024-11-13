@@ -30,6 +30,7 @@ function Item({ item }: { item: CollectedGame }) {
       title: "Game removed",
       description: `${gameName} has been removed from your collection`,
       variant: "destructive",
+      duration: 4000,
     })
     setIsloading(false)
   }

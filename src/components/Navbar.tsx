@@ -6,6 +6,7 @@ import { usePathname, useSearchParams } from "next/navigation"
 import { MouseEvent, useState } from "react"
 import Mario from "@/components/animations/Mario"
 import { SessionType } from "@/lib/session"
+import Image from "next/image"
 
 function Navbar({ session }: { session: SessionType }) {
   const pathname = usePathname()
@@ -35,10 +36,18 @@ function Navbar({ session }: { session: SessionType }) {
       onMouseMove={(e) => handleMouseMove(e)}
     >
       <Link
-        className="z-10 cursor-pointer animate-fadeInLong "
+        className="z-10 cursor-pointer animate-fadeInLong flex gap-2"
         href={currentSort ? `/?sort=${currentSort}` : "/"}
       >
-        <img width={30} height={30} src={"/aerolab-logo.svg"} alt="Logo image" />
+        <Image width={30} height={30} src={"/aerolab-logo.svg"} alt="Logo image" priority />
+        <Image
+          src="/logo.svg"
+          alt="Logo"
+          width={32}
+          height={32}
+          className="border rounded-lg border-pink-600 bg-pink-100 p-1 shadow-lg animate-fadeInUpShort"
+          priority
+        />
       </Link>
 
       {!session.isAuth ? (
