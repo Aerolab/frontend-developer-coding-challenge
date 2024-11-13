@@ -37,7 +37,11 @@ function Item({ item }: { item: CollectedGame }) {
   return (
     <li className="relative elevateOnHover rounded-2xl">
       <Link
-        href={currentSort ? `/games/${item.igbd_id}?sort=${currentSort}` : `/games/${item.igbd_id}`}
+        href={
+          currentSort
+            ? `/games/${item.igbd_id}/${item.slug}?sort=${currentSort}`
+            : `/games/${item.igbd_id}/${item.slug}`
+        }
       >
         <img
           className="w-[114px] h-[152px] rounded-2xl object-cover sm:w-[170px] sm:h-[226px]"

@@ -1,6 +1,7 @@
 export interface GameDetails {
   id: number
   name: string
+  slug: string
   involved_companies: {
     publisher: boolean
     company: {
@@ -24,7 +25,12 @@ export interface GameDetails {
     id: number
     image_id: string
   }[]
-  similar_games: { id: number; name: string; cover: { id: number; image_id: string } }[]
+  similar_games: {
+    id: number
+    name: string
+    slug: string
+    cover: { id: number; image_id: string }
+  }[]
 }
 
 export interface Game {
@@ -37,4 +43,5 @@ export interface Game {
     width: number
   }
   name: string
+  slug: string
 }

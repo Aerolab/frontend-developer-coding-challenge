@@ -16,7 +16,11 @@ export default function SimilarGames({ game }: { game: GameDetails }) {
           {game.similar_games.map((item) => (
             <Link
               key={item.id}
-              href={currentSort ? `/games/${item.id}?sort=${currentSort}` : `/games/${item.id}`}
+              href={
+                currentSort
+                  ? `/games/${item.id}/${item.slug}?sort=${currentSort}`
+                  : `/games/${item.id}/${item.slug}`
+              }
             >
               <img
                 className="w-[114px] h-[152px] rounded-md object-cover elevateOnHover sm:w-[170px] sm:h-[226px]"

@@ -11,7 +11,11 @@ export default function ResultsItem({ item }: { item: Game }) {
     <li className="hover:bg-gray-100">
       <Link
         className="flex gap-2 items-center sm:p-2"
-        href={currentSort ? `/games/${item.id}?sort=${currentSort}` : `/games/${item.id}`}
+        href={
+          currentSort
+            ? `/games/${item.id}/${item.slug}?sort=${currentSort}`
+            : `/games/${item.id}/${item.slug}`
+        }
       >
         <img
           className="h-8 w-8 object-cover"

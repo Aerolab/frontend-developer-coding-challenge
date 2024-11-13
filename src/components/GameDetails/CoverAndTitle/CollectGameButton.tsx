@@ -44,6 +44,7 @@ export default function CollectGameButton({
     >
       <input name="gameId" value={game.id} type="text" hidden readOnly />
       <input name="name" value={game.name} type="text" hidden readOnly />
+      <input name="slug" value={game.slug} type="text" hidden readOnly />
       <input name="coverImgUrl" value={game.cover?.image_id} type="text" hidden readOnly />
       <input name="date" value={game.first_release_date} type="text" hidden readOnly />
 

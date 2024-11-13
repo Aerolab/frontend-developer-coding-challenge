@@ -25,6 +25,7 @@ export async function createUser(email: string, hashedPassword: string) {
 type addGamePayload = {
   igbd_id: number
   name: string
+  slug: string
   coverImgUrl: string
   first_release_date: Date
   user_id: number

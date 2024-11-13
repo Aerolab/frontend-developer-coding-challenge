@@ -15,12 +15,12 @@ import {
 import type { Metadata } from "next"
 
 type Props = {
-  params: Promise<{ gameId: string }>
+  params: Promise<{ gameId: string; slug: string }>
   searchParams: Promise<{ query?: string }>
 }
 
 export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
-  const gameId = (await params).gameId
+  const { gameId, slug } = await params
   const game = await searchGameById(gameId)
 
   return {
@@ -29,7 +29,7 @@ export async function generateMetadata({ params, searchParams }: Props): Promise
 }
 
 export default async function GameDetailsPage({ params, searchParams }: Props) {
-  const gameId = (await params).gameId
+  const { gameId, slug } = await params
   const query = (await searchParams).query || ""
 
   return (

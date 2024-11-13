@@ -27,6 +27,7 @@ model CollectedGame{
   id                  Int @id @default(autoincrement())
   igbd_id             Int
   name                String
+  slug                String
   coverImgUrl         String
   first_release_date  DateTime
   // User rel
