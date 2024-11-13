@@ -25,6 +25,28 @@ export async function generateMetadata({ params, searchParams }: Props): Promise
 
   return {
     title: game.name,
+    description: game.summary,
+    keywords: [
+      ...game.genres.map((genre) => genre.name),
+      ...game.similar_games.map((item) => item.name),
+      game.slug,
+      game.name,
+      ...game.involved_companies.map((item) => item.company.name),
+    ],
+    openGraph: {
+      title: "Gaming Heaven Z",
+      description: `Search any game. ${game.name} game sheet`,
+      images: [
+        {
+          url: `https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.image_id}`,
+          width: 264,
+          height: 374,
+          alt: `${game.name} cover`,
+        },
+      ],
+      locale: "en_US",
+      type: "website",
+    },
   }
 }
 
