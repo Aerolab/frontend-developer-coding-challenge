@@ -5,6 +5,7 @@ import { useState } from "react"
 import { deleteGame } from "./actions"
 import { useToast } from "@/hooks/use-toast"
 import { useSearchParams } from "next/navigation"
+import Image from "next/image"
 
 export default function GamesList({ sortedGames }: { sortedGames: CollectedGame[] }) {
   return (
@@ -36,7 +37,7 @@ function Item({ item }: { item: CollectedGame }) {
   }
 
   return (
-    <li className="relative elevateOnHover rounded-2xl">
+    <li className="relative elevateOnHover rounded-2xl w-full aspect-[170/226]">
       <Link
         href={
           currentSort
@@ -44,11 +45,13 @@ function Item({ item }: { item: CollectedGame }) {
             : `/games/${item.igbd_id}/${item.slug}`
         }
       >
-        <img
+        <Image
           className="w-full aspect-[170/226] rounded-2xl object-cover"
           src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${item.coverImgUrl}.jpg`}
           alt={item.name + " cover "}
-          loading="lazy"
+          width={170}
+          height={226}
+          sizes="(max-width: 640px) 114px, 170px"
         />
       </Link>
 

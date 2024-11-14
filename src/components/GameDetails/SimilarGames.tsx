@@ -1,6 +1,7 @@
 "use client"
 
 import { GameDetails } from "@/types/games"
+import Image from "next/image"
 import Link from "next/link"
 import { useSearchParams } from "next/navigation"
 
@@ -12,25 +13,31 @@ export default function SimilarGames({ game }: { game: GameDetails }) {
     return (
       <div className="mb-12">
         <h2 className="text-base">Similar games</h2>
-        <div className="grid gap-2 justify-items-center grid-cols-[repeat(auto-fill,minmax(114px,1fr))] sm:grid-cols-[repeat(auto-fill,minmax(170px,1fr))] ">
+        <ul className="w-full grid gap-2 justify-center grid-cols-[repeat(auto-fill,114px)] sm:grid-cols-[repeat(auto-fill,170px)]">
           {game.similar_games.map((item) => (
-            <Link
+            <li
               key={item.id}
-              href={
-                currentSort
-                  ? `/games/${item.id}/${item.slug}?sort=${currentSort}`
-                  : `/games/${item.id}/${item.slug}`
-              }
+              className="relative elevateOnHover rounded-2xl w-full aspect-[170/226]"
             >
-              <img
-                className="rounded-md object-cover elevateOnHover w-full aspect-[170/226]"
-                src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${item.cover?.image_id}.jpg`}
-                alt={item.name + " cover "}
-                loading="lazy"
-              />
-            </Link>
+              <Link
+                href={
+                  currentSort
+                    ? `/games/${item.id}/${item.slug}?sort=${currentSort}`
+                    : `/games/${item.id}/${item.slug}`
+                }
+              >
+                <Image
+                  className="w-full aspect-[170/226] rounded-2xl object-cover"
+                  src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${item.cover?.image_id}.jpg`}
+                  alt={item.name + " cover "}
+                  width={170}
+                  height={226}
+                  sizes="(max-width: 640px) 114px, 170px"
+                />
+              </Link>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     )
   }

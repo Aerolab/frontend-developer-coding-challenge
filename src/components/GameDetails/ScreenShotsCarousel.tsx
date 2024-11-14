@@ -27,7 +27,7 @@ export default function ScreenShotsCarousel({ game }: { game: GameDetails }) {
   const screenshotCarouselBigUrl = baseUrl + "/t_cover_big"
 
   return (
-    <div>
+    <div className="min-h-[103px] sm:min-h-[166px]">
       <h2 className="text-base">Media</h2>
       <div className="px-12">
         <Carousel
