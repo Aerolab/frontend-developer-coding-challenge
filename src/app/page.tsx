@@ -18,7 +18,7 @@ export default async function Home(props: { searchParams: SearchParams }) {
       <main className="p-2 mx-auto grid grid-cols-1 max-w-[400px] sm:max-w-[1000px] gap-3 sm:gap-[20px] mt-1 sm:mt-12">
         <div className="flex items-center gap-3 w-full max-w-[358px] sm:w-auto mx-auto">
           <Image
-            src="/logo.svg"
+            src="/Logo.svg"
             alt="Logo"
             width={32}
             height={32}
