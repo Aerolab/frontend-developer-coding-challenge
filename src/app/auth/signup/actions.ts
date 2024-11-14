@@ -5,6 +5,7 @@ import { redirect } from "next/navigation"
 import * as bcrypt from "bcrypt"
 import { createSession } from "@/lib/session"
 import { createUser, findUserByEmail } from "@/lib/users"
+import { revalidatePath } from "next/cache"
 
 const loginSchema = z.object({
   email: z.string().email({ message: "Invalid email address" }).trim(),
@@ -42,6 +43,6 @@ export async function signup(prevState: any, formData: FormData) {
   const newUser = await createUser(email, hashedPassword)
 
   await createSession(newUser.id, email)
-
+  revalidatePath("/", "layout")
   redirect("/")
 }

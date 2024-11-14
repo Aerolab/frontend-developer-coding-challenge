@@ -5,33 +5,37 @@
 // token is extracted from cookie session and passed as parameter
 
 import { Game, GameDetails } from "@/types/games"
+import { cache } from "react"
+import { unstable_cache as next_cache } from "next/cache"
 
 const BASE_URL = "https://api.igdb.com/v4"
 
-export async function searchGames(gameName: string, igbdToken: string): Promise<Game[]> {
-  try {
-    const res = await fetch(BASE_URL + "/games", {
-      method: "POST",
-      body: `search "${gameName}"; limit 8; fields id,cover.*,name, slug;`,
-      headers: {
-        "Client-ID": process.env.CLIENT_ID_TWITCH as string,
-        Authorization: `Bearer ${igbdToken}` as string,
-      },
-    })
+export const searchGames = next_cache(
+  async (gameName: string, igbdToken: string): Promise<Game[]> => {
+    try {
+      const res = await fetch(BASE_URL + "/games", {
+        method: "POST",
+        body: `search "${gameName}"; limit 8; fields id,cover.*,name, slug;`,
+        headers: {
+          "Client-ID": process.env.CLIENT_ID_TWITCH as string,
+          Authorization: `Bearer ${igbdToken}` as string,
+        },
+      })
 
-    if (!res.ok) {
-      throw new Error(`Error searching game`)
+      if (!res.ok) {
+        throw new Error(`Error searching game`)
+      }
+
+      const games = await res.json()
+
+      return games
+    } catch (error) {
+      throw Error("Error searching game")
     }
-
-    const games = await res.json()
-
-    return games
-  } catch (error) {
-    throw Error("Error searching game")
   }
-}
+)
 
-export async function searchGameById(id: string, igbdToken: string): Promise<GameDetails> {
+export const searchGameById = cache(async (id: string, igbdToken: string): Promise<GameDetails> => {
   try {
     const res = await fetch(BASE_URL + "/games", {
       method: "POST",
@@ -53,4 +57,4 @@ export async function searchGameById(id: string, igbdToken: string): Promise<Gam
     console.log(error)
     throw Error("Error searching game")
   }
-}
+})
