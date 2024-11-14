@@ -23,14 +23,14 @@ function Item({ item }: { item: CollectedGame }) {
   const { toast } = useToast()
   const [isLoading, setIsloading] = useState(false)
 
-  const handleDelete = async (igbd_id: number, gameName: string) => {
+  const handleDelete = async (id: number, gameName: string) => {
     setIsloading(true)
-    await deleteGame(igbd_id)
+    await deleteGame(id)
     toast({
       title: "Game removed",
       description: `${gameName} has been removed from your collection`,
       variant: "destructive",
-      duration: 4000,
+      duration: 3000,
     })
     setIsloading(false)
   }
@@ -48,6 +48,7 @@ function Item({ item }: { item: CollectedGame }) {
           className="w-[114px] h-[152px] rounded-2xl object-cover sm:w-[170px] sm:h-[226px]"
           src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${item.coverImgUrl}.jpg`}
           alt={item.name + " cover "}
+          loading="lazy"
         />
       </Link>
 
@@ -58,7 +59,7 @@ function Item({ item }: { item: CollectedGame }) {
       ) : (
         <TrashIcon
           className="absolute bottom-2 right-2 z-10 bg-gray-0 h-8 w-8 rounded-full p-2 hover:bg-red hover:text-white cursor-pointer"
-          onClick={() => handleDelete(item.igbd_id, item.name)}
+          onClick={() => handleDelete(item.id, item.name)}
         />
       )}
     </li>

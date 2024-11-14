@@ -1,4 +1,4 @@
-import { CollectedGame, PrismaClient } from "@prisma/client"
+import { PrismaClient } from "@prisma/client"
 
 const prisma = new PrismaClient()
 
@@ -39,7 +39,7 @@ export async function addGameToUser(data: addGamePayload) {
     }
 
     const gameAllReadyCollected = await prisma.collectedGame.findFirst({
-      where: { igbd_id: data.igbd_id },
+      where: { igbd_id: data.igbd_id, user_id: data.user_id },
     })
     if (gameAllReadyCollected) {
       throw Error("Game allready in db")
@@ -65,9 +65,9 @@ export async function getCollectedGamesbyUser(userId: number) {
   }
 }
 
-export async function deleteGameOfUser(igbd_id: number, user_id: number) {
+export async function deleteGameOfUserById(id: number) {
   try {
-    return prisma.collectedGame.deleteMany({ where: { igbd_id, user_id } })
+    return prisma.collectedGame.delete({ where: { id } })
   } catch (error) {
     console.error("Error deleting game:", error)
     throw new Error("Failed to delete game")
