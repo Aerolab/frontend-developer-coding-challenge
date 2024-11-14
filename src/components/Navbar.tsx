@@ -41,7 +41,7 @@ function Navbar({ session }: { session: SessionType }) {
       >
         <Image width={30} height={30} src={"/aerolab-logo.svg"} alt="Logo image" priority />
         <Image
-          src="/logo.svg"
+          src="/Logo.svg"
           alt="Logo"
           width={32}
           height={32}
