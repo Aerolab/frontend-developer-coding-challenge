@@ -45,7 +45,7 @@ function Item({ item }: { item: CollectedGame }) {
         }
       >
         <img
-          className="w-[114px] h-[152px] rounded-2xl object-cover sm:w-[170px] sm:h-[226px]"
+          className="w-full aspect-[170/226] rounded-2xl object-cover"
           src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${item.coverImgUrl}.jpg`}
           alt={item.name + " cover "}
           loading="lazy"

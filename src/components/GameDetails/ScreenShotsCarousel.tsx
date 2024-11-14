@@ -47,6 +47,7 @@ export default function ScreenShotsCarousel({ game }: { game: GameDetails }) {
                         sizes="(max-width: 638px) 90px, 264px"
                         alt={`Screenshot ${item.id}`}
                         className="w-full h-full object-cover rounded-lg"
+                        loading="lazy"
                       />
                     </div>
                   </DialogTrigger>
@@ -93,9 +94,10 @@ function CarouselInsideModal({
           <CarouselItem key={screenshot.image_id} className="mx-auto flex">
             <img
               srcSet={`${screenshotSmallUrl}/${screenshot.image_id}.jpg 569w, ${screenshotBigUrl}/${screenshot.image_id}.jpg 889w`}
-              sizes="(max-width: 680px) 569px, (min-width: 681px) 889px"
+              sizes="(max-width: 680px) 569px, 889px"
               alt={`Screenshot ${screenshot.id}`}
               className="w-full h-full object-cover rounded-lg"
+              loading="lazy"
             />
           </CarouselItem>
         ))}

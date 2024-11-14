@@ -26,17 +26,18 @@ export default async function CoverAndTitle({ game }: { game: GameDetails }) {
 
   return (
     <>
-      <div className="grid grid-cols-[auto,1fr] gap-3">
+      <div className="grid grid-cols-[82.5px,1fr] sm:grid-cols-[170px,1fr] gap-3">
         {game?.cover?.image_id ? (
           <img
-            className="w-[82.5px] h-[110px] sm:h-[226px] sm:w-[170px] rounded-lg object-cover sm:row-span-2"
+            className="w-full aspect-[170/226] rounded-lg object-cover sm:row-span-2"
             srcSet={`${coverSmallUrl}/${game.cover.image_id}.jpg 90w, ${coverBigUrl}/${game.cover.image_id}.jpg 264w`}
             sizes="(max-width: 640px) 90px, 264px"
             alt={`${game.name} cover`}
+            fetchPriority="high"
           />
         ) : (
           <img
-            className="w-[82.5px] h-[110px] sm:h-[226px] sm:w-[170px] rounded-lg object-cover sm:row-span-2"
+            className="w-full aspect-[170/226] rounded-lg object-cover sm:row-span-2"
             src={"/No-Image-Placeholder.svg"}
             alt={`${game.name} cover`}
           />

@@ -19,6 +19,8 @@ export default function ResultsItem({ item }: { item: Game }) {
       >
         <img
           className="h-8 w-8 object-cover"
+          width={8}
+          height={8}
           src={
             item.cover
               ? `https://images.igdb.com/igdb/image/upload/t_cover_small/${item?.cover?.image_id}.jpg`
