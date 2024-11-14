@@ -22,7 +22,7 @@ export default async function Home(props: { searchParams: SearchParams }) {
             alt="Logo"
             width={32}
             height={32}
-            className="border rounded-lg border-pink-600 p-1 shadow-lg animate-fadeInUpShort"
+            className="border rounded-lg border-pink-600 p-1 shadow-lg animate-fadeInUpShort h-[32px] w-[32px]"
           />
           <h1 className="animate-fadeInUpLong">Gaming Heaven Z</h1>
         </div>

@@ -26,6 +26,7 @@ export default function SimilarGames({ game }: { game: GameDetails }) {
                 className="w-[114px] h-[152px] rounded-md object-cover elevateOnHover sm:w-[170px] sm:h-[226px]"
                 src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${item.cover?.image_id}.jpg`}
                 alt={item.name + " cover "}
+                loading="lazy"
               />
             </Link>
           ))}

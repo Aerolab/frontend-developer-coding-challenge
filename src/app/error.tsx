@@ -2,6 +2,8 @@
 
 import Link from "next/link"
 import { useEffect } from "react"
+import errorImg from "../../public/error-page.jpg"
+import Image from "next/image"
 
 export default function Error({
   error,
@@ -28,10 +30,11 @@ export default function Error({
         Back Home
       </Link>
 
-      <img
-        src="/error-page.jpg"
-        alt="error image game over arcade"
+      <Image
         className="w-full max-w-[680px] mt-1 rounded-lg"
+        src={errorImg}
+        alt="error image game over arcade"
+        sizes="(max-width:680px) 100vw, 680px"
       />
     </main>
   )

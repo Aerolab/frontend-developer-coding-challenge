@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar"
 import { Inter } from "next/font/google"
 import { verifySession } from "@/lib/session"
 import { Toaster } from "@/components/ui/toaster"
+import BgImage from "@/components/BgImage"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -30,7 +31,8 @@ export default async function RootLayout({
       <body className={`${inter.className} antialiased`}>
         <div className="mx-auto max-w-[1440px]">
           <Navbar session={session} />
-          <div className="bg-mobile bgBreakpoint:bg-desktop absolute top-[50px] left-0 right-0 -z-10"></div>
+          <BgImage />
+
           <div className="grid justify-items-center gap-6">{children}</div>
         </div>
 
