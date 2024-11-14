@@ -8,6 +8,7 @@ import { searchGames } from "@/lib/games"
 import { Suspense } from "react"
 import { LoaderCircle } from "lucide-react"
 import ResultsItem from "./ResultsItem"
+import { verifySession } from "@/lib/session"
 
 export default function SearchGame({ query }: { query: string }) {
   return (
@@ -22,7 +23,8 @@ export default function SearchGame({ query }: { query: string }) {
 }
 
 async function Results({ query }: { query: string }) {
-  const games = query ? await searchGames(query) : []
+  const { igbdToken } = await verifySession()
+  const games = query ? await searchGames(query, igbdToken!) : []
 
   return (
     <ul className="hidden peer-focus:flex hover:flex flex-col gap-1 border absolute top-10 w-full bg-white shadow-lg z-10 rounded-bl-[20px] rounded-br-[20px] p-2 border-pink-600 border-opacity-20">

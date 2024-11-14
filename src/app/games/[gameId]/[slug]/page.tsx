@@ -13,6 +13,7 @@ import {
   Summary,
 } from "@/components/GameDetails"
 import type { Metadata } from "next"
+import { verifySession } from "@/lib/session"
 
 type Props = {
   params: Promise<{ gameId: string; slug: string }>
@@ -20,8 +21,9 @@ type Props = {
 }
 
 export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
+  const { igbdToken } = await verifySession()
   const { gameId, slug } = await params
-  const game = await searchGameById(gameId)
+  const game = await searchGameById(gameId, igbdToken!)
 
   return {
     title: game.name,
@@ -69,7 +71,8 @@ export default async function GameDetailsPage({ params, searchParams }: Props) {
 }
 
 async function GameInfo({ gameId }: { gameId: string }) {
-  const game = await searchGameById(gameId)
+  const { igbdToken } = await verifySession()
+  const game = await searchGameById(gameId, igbdToken!)
 
   if (!game) {
     notFound()
