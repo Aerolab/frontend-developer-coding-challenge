@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Gaming heaven challenge
 
-## Getting Started
+Live: 🔗 https://nico-bt-gaming-heaven.vercel.app/
 
-First, run the development server:
+Techs used:
+- Nextjs
+- Typescript
+- Tailwind, Shadcn
+- Prisma ORM + Supabase
+- LottieFiles for small animations (Mario, Tetris and Gameboy Loader)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+I took the liberty of, instead using local storage, use a database to store users and its games.  
+With authentication and authorization protecting all routes except login and signup.  
+Following the model below:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Entity Relationship Diagram
+![Entities Diagram](https://github.com/user-attachments/assets/9bc73bad-1344-4702-ae13-1375564037d3)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Overall flow of signup or login:  
+![auth drawio](https://github.com/user-attachments/assets/9c7130ec-6608-452e-b88e-fe94ef37c34b)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+With a session cookie you can access the app.  
+Routes "/" and "/games/[gameId]/[slug]" are protected.  
+Now you can:
+- Search for games using igbd api
+- Get and delete games saved that belongs to the corresponding logged user
 
-## Learn More
+## Simplified flow
+![app drawio](https://github.com/user-attachments/assets/28ed7ca1-811b-4a52-9613-d83c46267468)
 
-To learn more about Next.js, take a look at the following resources:
+## Comments
+- Followed the "Next way" of using server actions and getting direct access to db via Server Components.  
+I did not create a separate api to access via client side  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Sort selection for saved games is mantained via url params.  
+Once you sort your games they stay that way when you navigate back and fort, convenient for checking dates or other related data and not having to select your sort type again  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Added metadata and dynamic metadata for details page.  
 
-## Deploy on Vercel
+- Routes are protected via middleware, if you don't have a valid session you are redirected to login  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Getting saved games from db is cached and getting game details has request memoization  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- When a session is created a new token is requested to IGBD with my credentials stored in enviromental variables.  
+  Session_expiration < Token_expiration ensuring that the token is always valid and not expired. User session will expire first  
+
+- I've used Next Image component for some images, but for others I've used the native "img" with srcset, using the different image sizes url endpoints that the igbd api already provides.  
+Avoiding spending Vercel quota for optimizing images.  
+
+- I've kept the server actions files close to where they are used. Other option could be a separate folder on src root.
+  
+- For dynamic routes, I've incorporated the slug of the game in the url, but also mantained the id (I think searching by id could be more efficient for db queries ?)
+
+🎮 Hope you like it!  
+
