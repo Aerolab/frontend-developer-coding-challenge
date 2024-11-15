@@ -36,4 +36,7 @@ model CollectedGame{
   //
   created_at          DateTime @default(now())
   updated_at          DateTime @updatedAt
+
+  @@unique([igbd_id, user_id]) // User can't have the same game twice
+
 }

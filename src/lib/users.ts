@@ -33,18 +33,6 @@ type addGamePayload = {
 
 export async function addGameToUser(data: addGamePayload) {
   try {
-    const user = await prisma.user.findUnique({ where: { id: data.user_id } })
-    if (!user) {
-      throw Error("User not found in db")
-    }
-
-    const gameAllReadyCollected = await prisma.collectedGame.findFirst({
-      where: { igbd_id: data.igbd_id, user_id: data.user_id },
-    })
-    if (gameAllReadyCollected) {
-      throw Error("Game allready in db")
-    }
-
     return prisma.collectedGame.create({ data })
   } catch (error: any) {
     throw new Error(
