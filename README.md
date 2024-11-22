@@ -12,7 +12,7 @@
 
 ## Overview
 
-Your task is to create a web application that allows users to search for and digitally collect video games, using the IGDB API and browser/device storage. The project must be built using the Next.js App Router. Styling is flexible, but we recommend using Tailwind CSS or CSS Modules. The final product should be functional, visually appealing, and provide a great user experience. Feel free to add any extra features or custom styling as you see fit.
+Your task is to create a web application that allows users to search for and digitally collect video games, using the IGDB API and browser/device storage. The project must be built using the `Next.js App Router` (or even `Expo React Native` if you have enough experience). Styling is flexible, but we recommend using `Tailwind CSS` or `CSS Modules`. The final product should be functional, visually appealing, and provide a great user experience. Feel free to add any extra features or custom styling as you see fit.
 
 > You’re welcome to use any additional libraries you find helpful for the challenge.
 
@@ -21,7 +21,7 @@ Your task is to create a web application that allows users to search for and dig
 ## Design resources
 > [!IMPORTANT]
 > Access the [Figma design here](https://www.figma.com/design/3O7BxHFnSSawJeny3lXWkE/Aerolab-Frontend-Developer-Coding-Challenge---Public?node-id=16996-5165&t=uLiMR18T28Jegm4s-4) to complete the challenge.
-> Prioritizing responsive/mobile design is essential; the desktop design is optional but we expect at least a clean and polished appearance.
+> ⭐️ Prioritizing responsive/mobile design is essential; the desktop design is optional but we expect at least a clean and polished appearance.
 
 ## Tech Stack
 
@@ -30,15 +30,15 @@ We recommend using the following technologies to align with the tools we use at 
 
 ### Recommended Tools
 - `TypeScript` for type safety and data modeling.
-- `Next.js` (App Router) for server-side rendering and routing.
+- `Next.js` (App Router) for server-side rendering and routing. (or Expo React Native)
 - Tailwind CSS or CSS Modules for styling.
 - `Radix`, `shadcn`, `NextUI`, `MagicUI`, `MUI` for UI components.
 - `Vercel` for deployment.
 - `Postman` or `HTTPie` for API request testing.
 - (Optional) `React Testing Library` for testing.
 
+> NOTE: If you feel free and have enouth experience to make the challenge with React Native, please use Expo.
 > Yes, you can use AI to enhance any part of the project, or even integrate it into your solution.
-
 
 ## IGDB API
 
