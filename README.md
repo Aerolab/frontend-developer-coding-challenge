@@ -19,9 +19,9 @@ Your task is to create a web application that allows users to search for and dig
 ![image](https://github.com/user-attachments/assets/92b96f68-561e-4326-8e8d-72dec6251b9d)
 
 ## Design resources
+
 > [!IMPORTANT]
-> Access the [Figma design here](https://www.figma.com/design/3O7BxHFnSSawJeny3lXWkE/Aerolab-Frontend-Developer-Coding-Challenge---Public?node-id=16996-5165&t=uLiMR18T28Jegm4s-4) to complete the challenge.
-> ⭐️ Prioritizing responsive/mobile design is essential; the desktop design is optional but we expect at least a clean and polished appearance.
+> You should prioritize the responsive/mobile design; the desktop design is optional but we expect at least a clean and polished appearance. Access the [Figma design here](https://www.figma.com/design/3O7BxHFnSSawJeny3lXWkE/Aerolab-Frontend-Developer-Coding-Challenge---Public?node-id=16996-5165&t=uLiMR18T28Jegm4s-4) to complete the challenge.
 
 ## Tech Stack
 
@@ -36,9 +36,10 @@ We recommend using the following technologies to align with the tools we use at 
 - `Vercel` for deployment.
 - `Postman` or `HTTPie` for API request testing.
 - (Optional) `React Testing Library` for testing.
+- (Optional) Yes, you can use `AI` to enhance any part of the project, or even integrate it into your solution.
 
-> NOTE: If you feel free and have enouth experience to make the challenge with React Native, please use Expo.
-> Yes, you can use AI to enhance any part of the project, or even integrate it into your solution.
+> [!IMPORTANT]
+> If you feel free and have enouth experience to make the challenge with `React Native`, please use `Expo`. 
 
 ## IGDB API
 
