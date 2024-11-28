@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer components {
+  .bg-mobile {
+    background-image: url("/background_mobile.jpg");
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    height: 276px;
+  }
+  .bg-desktop {
+    background-image: url("/background_desktop.jpg");
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    height: 296px;
+  }
+  .btn {
+    width: 100%;
+    max-width: 358px;
+    height: 40px;
+    border-radius: 30px;
+    width: Fixed (358px) px;
+    padding: 8px 16px 8px 16px;
+    @apply bg-violet-600;
+    color: white;
+    font-size: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .elevateOnHover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .btn:not(.btn-collected):hover,
+  .elevateOnHover:hover {
+    transform: scale(1.05);
+    box-shadow: 6px 6px 6px black;
+  }
+  .btn-collected {
+    @apply btn;
+    @apply border border-violet-600 text-violet-600;
+    @apply bg-white;
+  }
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #6727a6, #3c1661);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+h2 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000000;
+}
+h3 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #775c90;
+}
+h4,
+p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #666666;
+}
+
+@media (min-width: 640px) {
+  h1 {
+    font-size: 24px;
+  }
+  h4 {
+    font-size: 16px;
+  }
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
