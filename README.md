@@ -2,7 +2,7 @@
 > [!TIP]
 > Apply for [UI Developer here](https://aerolab.recruitee.com/o/ui-developer-ssr-sr) and for [Full-stack Developer here](https://aerolab.recruitee.com/o/semisenior-senior-javascript-developer)
 
-# Aerolab Coding Challenge (for frontend developers)
+# Aerolab Coding Challenge
 
 > Check out our 2022 coding challenge [here](https://github.com/Aerolab/frontend-developer-coding-challenge/tree/2022)
 
