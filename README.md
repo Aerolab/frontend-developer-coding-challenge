@@ -2,6 +2,8 @@
 
 > Check out our 2022 coding challenge [here](https://github.com/Aerolab/frontend-developer-coding-challenge/tree/2022)
 
+![image](https://github.com/user-attachments/assets/7a8c6020-c744-4542-8e72-68b0b928614b)
+
 * [Overview](#Overview)
 * [Design resources](#Design-resources)
 * [Tech Stack](#Tech-Stack)
