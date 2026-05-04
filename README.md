@@ -36,9 +36,9 @@ The goal isn't to ship a complete product — it's to see how you think, how you
 
 ## Design resources
 
-A reference Figma is provided so you have something to anchor visual decisions, but **pixel-perfect matching is not the goal** in this format. Capture the spirit of the design and prioritize a clean, responsive layout.
+Below is a reference design with the four key screens (empty state, collection, search, detail). **Pixel-perfect matching is not the goal** in this format — capture the spirit of the design and prioritize a clean, responsive layout.
 
-[Figma design here](https://www.figma.com/design/3O7BxHFnSSawJeny3lXWkE/Aerolab-Frontend-Developer-Coding-Challenge---Public?node-id=16996-5165&t=uLiMR18T28Jegm4s-4)
+![Design reference](./docs/design.png)
 
 ## Tech Stack
 
