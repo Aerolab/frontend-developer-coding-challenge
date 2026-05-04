@@ -6,8 +6,6 @@
 
 > This is the **live, pair-programming version** of our challenge. For the take-home version, see the [`main` branch](https://github.com/Aerolab/frontend-developer-coding-challenge/tree/main).
 
-![image](https://github.com/user-attachments/assets/7a8c6020-c744-4542-8e72-68b0b928614b)
-
 * [Overview](#Overview)
 * [Format](#Format)
 * [Design resources](#Design-resources)
@@ -21,8 +19,6 @@
 Your task is to build a small web application that lets users search for video games and save them into a personal collection stored in the browser. We'll work on it together, live, during the interview.
 
 The goal isn't to ship a complete product — it's to see how you think, how you make decisions, and how you collaborate with us (and with AI tools) to solve a problem under realistic conditions.
-
-![image](https://github.com/user-attachments/assets/92b96f68-561e-4326-8e8d-72dec6251b9d)
 
 ## Format
 
