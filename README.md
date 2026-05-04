@@ -11,8 +11,8 @@
 * [Design resources](#Design-resources)
 * [Tech Stack](#Tech-Stack)
 * [Games API](#Games-API)
-* [Requirements](#Requirements)
-* [Evaluation](#Evaluation)
+* [The product](#the-product)
+* [Evaluation](#evaluation)
 
 ## Overview
 
@@ -26,9 +26,9 @@ The goal isn't to ship a complete product — it's to see how you think, how you
 > This is a **pair-programming session**, not a solo exam. Think out loud, ask questions, push back on ideas — that's the point.
 
 - ⏱ **Duration:** ~60–90 minutes of building, plus time to chat about the result.
-- 🤖 **AI is welcome and encouraged.** Bring whatever AI tooling you already use day-to-day (Cursor, Claude Code, Copilot, ChatGPT, etc.). We want to see how you actually work in 2026.
+- 🤖 **AI is welcome and encouraged.** Bring whatever tooling you already use day-to-day (Cursor, Claude Code, Copilot, ChatGPT, etc.). We want to see how you actually work today.
 - 💻 **You'll share your screen** and drive the keyboard. We'll be there to discuss tradeoffs, unblock you, and explore the problem together.
-- 🎯 **Scope > polish.** Aim for a working, opinionated MVP. Anything you don't get to we can talk through verbally.
+- 🎯 **Scope over polish.** Aim for a working, opinionated slice of the product rather than a partially built complete one.
 
 ## Design resources
 
@@ -116,13 +116,13 @@ You decide how much of this you build during the session, and in what order. We 
 
 ## Evaluation
 
-We're not grading a finished product. We're trying to understand:
+We're trying to understand how you work, not whether you finish:
 
-- **How you reason.** Tradeoffs, scope decisions, what you choose to build first and why.
-- **How you collaborate.** With us, and with your AI tools. Showing how you steer, verify, and correct AI output is a strong signal.
-- **Code quality at speed.** Clean, readable code under time pressure. Naming, structure, types.
-- **Product sense.** Does what you build feel good to use? Did you notice the small things?
-- **Communication.** Thinking out loud, asking the right questions, knowing when to say "let's not bother with that now."
+- **How you reason about scope.** Tradeoffs, sequencing, what you choose to build first and why.
+- **How you work with AI.** Prompting, steering, verifying output, rejecting weak suggestions, and keeping the codebase coherent as you iterate.
+- **How you collaborate with us.** Thinking out loud, asking the right questions, pushing back, and knowing when to drop something.
+- **Code judgment.** Whether you actually read what gets shipped and step in when it doesn't hold up — naming, types, structure, dead code, weird abstractions.
+- **Product sense.** Does what you build feel good to use? Did you notice the small details?
 
 ## Aerolab
 
