@@ -104,26 +104,19 @@ https://aero-games-api.vercel.app/images/coaarl.webp
 - `first_release_date` is a **Unix timestamp in seconds**.
 - All fields are derived from the IGDB schema, so you can reference the [IGDB docs](https://api-docs.igdb.com/) for additional context if needed.
 
-## Requirements
+## The product
 
-We don't expect you to ship everything below. Pick what you can build well in the time you have, and we'll talk through the rest.
+The reference design is the source of truth for what we want to build. It defines four screens that together describe a single product: an app where a user can search for games, save them into a personal collection, and review the details of any game they care about.
 
-### Must-have
+At a high level, the product should support the following experience:
 
-- **Search.** Users can type in a search input and see matching games. Show cover art and title for each result. Update results dynamically as the user types (debounce as you see fit).
-- **Collection.** Users can add a game to their personal collection. The collection persists across page reloads (localStorage is fine).
-- **Empty state.** When the collection is empty, show a clear empty state.
-- **Collection grid.** Collected games render as a grid of covers.
-- **Responsive.** It should work on mobile and desktop — mobile-first is a plus.
+- A user opens the app and finds their personal collection of saved games. If they haven't saved anything yet, the app communicates that clearly.
+- The user can search the catalog and see relevant matches as they type, including cover art and title for each game.
+- From a search result, the user can open a game's detail view to see its cover, rating, release date, platforms, summary, screenshots, and similar games.
+- From either the search or the detail view, the user can add a game to their collection. The collection persists across reloads and renders as a grid of covers, with the option to sort it and to remove items from it.
+- The whole experience is responsive and behaves well on mobile and desktop.
 
-### Nice-to-have (in order of typical priority)
-
-- Remove games from the collection with feedback (toast, confirmation, etc.).
-- Sort the collection by release date or date added.
-- A game detail view (modal or `/games/{slug}` route) showing rating, release date, platforms, screenshots, similar games.
-- Loading and error states for the API calls.
-- Smooth micro-interactions / animations.
-- Accessibility: keyboard navigation, focus states, semantic HTML.
+You decide how much of this you build during the session, and in what order. We don't expect a finished product — we expect a coherent slice of one. Anything you don't reach we'll discuss together.
 
 ## Evaluation
 
